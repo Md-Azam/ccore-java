@@ -42,5 +42,14 @@ public class StreamBasic {
 		int[] array = { 5, 3, 8, 1, 9 };
 		array = Arrays.stream(array).boxed().sorted(Collections.reverseOrder()).mapToInt(Integer::intValue).toArray();
 		System.out.println(Arrays.toString(array));
+
+		//natural sorting of int[] array = { 5, 3, 8, 1, 9 };
+		array = Arrays.stream(array).sorted().toArray();
+		System.out.println(Arrays.toString(array));
+
+		//natural sorting on List<Integer> numbers = Arrays.asList(2, 4, 3, 7, 5, 55, 66, 51);
+		List<Integer> sortedNumbers = numbers.stream().sorted().collect(Collectors.toList());
+		System.out.println(sortedNumbers);
+
 	}
 }

@@ -16,7 +16,9 @@ public class MapAndHashMap {
         // Display the occurrences of each character
         for (Map.Entry<Character, Integer> entry : charCountMap.entrySet()) {
             System.out.println("Character: " + entry.getKey() + "  Occurrences: " + entry.getValue());
+        
         }    
+        charCountMap.forEach((k, v) -> System.out.println(k + ": " + v));
     }   
     public static Map<Character, Integer> countCharacters(String input) {
         // Create a map to store character occurrences

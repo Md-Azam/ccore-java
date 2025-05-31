@@ -1,6 +1,7 @@
 package collection;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 public class LinkedListQuest {
@@ -18,7 +19,10 @@ public class LinkedListQuest {
 		linkedList.add(6);
 		linkedList.add(56);
 		System.out.println(linkedList.getLast());
+		linkedList.addLast(23);
 		System.out.println(linkedList);
+		Iterator it = linkedList.iterator();
+		System.out.println(it.toString());
 	}
 
 }

@@ -11,6 +11,7 @@ public class HalfDiamond {
 				System.out.print("*");
 			System.out.print("\n");
 		}
+		System.out.println("End of upperHalfDiamond");
 
 	}
 
@@ -23,6 +24,7 @@ public class HalfDiamond {
 				System.out.print("*");
 			System.out.print("\n");
 		}
+		System.out.println("End of lowerHalfDiamond");
 	}
 
 	// Left Half Diamond Pattern
@@ -41,6 +43,7 @@ public class HalfDiamond {
 	         // new line
 	         System.out.println();      
 		}
+		System.out.println("End of lowerHalfDigitDiamond");
 	}
 	
 	//4. Left half diamond pattern:
@@ -57,7 +60,27 @@ public class HalfDiamond {
 	         // new line
 	         System.out.println();
 	      }
+	     System.out.println("End of leftHalfDiamondPattern");
 	}
+	
+	// Left Half Diamond Pattern
+		public static void lowerHalfAlphaDiamond(int n) {
+			for(int i=n-1; i >= 1; i--) {
+		         // in each iteration a will start from 1
+		         char  a = 'A'; 
+		         // print space
+		         for(int j=n; j >= i; j--) {
+		            System.out.print(" ");
+		         }
+		         // print digit/character
+		         for(int k=1; k <= 2*i-1; k++) {
+		            System.out.print((char)(a++));
+		         }
+		         // new line
+		         System.out.println();      
+			}
+			System.out.println("End of lowerHalfAlphaDiamond");
+		}
 
 
 	public static void main(String[] args) {
@@ -65,6 +88,7 @@ public class HalfDiamond {
 		upperHalfDiamond(6);
 		lowerHalfDigitDiamond(6);
 		leftHalfDiamondPattern(7);
+		lowerHalfAlphaDiamond(6);
 		
 	}
 

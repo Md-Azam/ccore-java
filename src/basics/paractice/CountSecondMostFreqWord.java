@@ -18,5 +18,6 @@ public static void main(String[] args) {
 	System.out.println(map);
 	Optional<Entry<String, Long>> findSecondFreqWord = map.entrySet().stream().sorted(Map.Entry.<String,Long>comparingByValue().reversed()).skip(1).findFirst();
 	System.out.println(findSecondFreqWord);
+	
 }
 }

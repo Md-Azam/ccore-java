@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ParanthesisGenerator {
 	public static void main(String[] args) {
-		System.out.println(generateParantheses(1));
+		System.out.println(generateParantheses(4));
 		
 	}
 

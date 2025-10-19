@@ -6,8 +6,8 @@ import java.util.Map;
 public class AnagramUsingMap {
 
 	public static void main(String[] args) {
-		String s1 = "listen";
-		String s2 = "silent";
+		String s1 = "madam";
+		String s2 = "damam";
 
 		if (isAnagram(s1, s2)) {
 			System.out.println(s1 + " and " + s2 + " are anagrams.");

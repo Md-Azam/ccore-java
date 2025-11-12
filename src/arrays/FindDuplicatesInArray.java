@@ -17,6 +17,7 @@ public class FindDuplicatesInArray {
 		list.add(56);
 		list.add(2);
 		list.add(32);
+		list.add(5);
 		System.out.println("list: " + list);
 		HashSet<Integer> seen = new HashSet<>();
 		HashSet<Integer> duplicate = new HashSet<>();

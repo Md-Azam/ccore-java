@@ -11,7 +11,7 @@ public class StringReverse {
 		StringBuilder sb = new StringBuilder(s);
 		sb.reverse();
 		System.out.println("Reverse String is: " + sb);
-		String sentence1 = "Azam is here";
+		String sentence1 = "this siht";
 		System.out.println(isPalindromeSentence(sentence1));
 		System.out.println(checkAnagram());
 	}

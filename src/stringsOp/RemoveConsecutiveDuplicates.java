@@ -23,7 +23,7 @@ public class RemoveConsecutiveDuplicates {
 
 	public static void main(String[] args) {
 		
-		 String str1 = "aabbcdefaf";
+		 String str1 = "aabbcdefafffa";
 	        System.out.println("Original: " + str1 + ", After removal: " + removeConsecutiveDuplicateChars(str1)); // Output: abcdef
 
 	        String str2 = "aaaaa";

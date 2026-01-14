@@ -27,7 +27,7 @@ public class SequenceGenerator {
 		//Non-static methods belong to an object.
 		public String getNextString() {
 			// Format the string with the counter
-			String nextString = String.format("G%06d", counter);
+			String nextString = String.format("SLH%06d", counter);
 			// Increment the counter for the next call
 			counter++;
 			return nextString;
@@ -35,7 +35,7 @@ public class SequenceGenerator {
 		public static void main(String[] args) {
 			SequenceGenerator generator = new SequenceGenerator();
 			// Generate and print the next 5 strings in the sequence
-			for (int i = 1; i < 5; i++) {
+			for (int i = 1; i < 15; i++) {
 				String nextString = generator.getNextString();
 				System.out.println(nextString);
 			}

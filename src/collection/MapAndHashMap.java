@@ -18,7 +18,14 @@ public class MapAndHashMap {
             System.out.println("Character: " + entry.getKey() + "  Occurrences: " + entry.getValue());
         
         }    
-        charCountMap.forEach((k, v) -> System.out.println(k + ": " + v));
+//        charCountMap.forEach((k, v) -> System.out.print("(" + k + ":" + v + ")"));
+        String result = charCountMap.entrySet()
+                .stream()
+                .map(e -> "(" + e.getKey() + ":" + e.getValue() + ")")
+                .collect(java.util.stream.Collectors.joining(",", "{", "}"));
+
+        System.out.println(result);
+
     }   
     public static Map<Character, Integer> countCharacters(String input) {
         // Create a map to store character occurrences

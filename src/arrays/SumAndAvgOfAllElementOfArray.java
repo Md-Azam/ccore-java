@@ -24,10 +24,5 @@ public class SumAndAvgOfAllElementOfArray {
 	float manualAvg = sumofArr/arr.length;
 	System.out.println(manualAvg);
 	
-	List<String> ls = Arrays.asList("apple","grapes","anar","apple","litchi","manago","litchi","apple");
-	Map<String, Long> maplong = ls.stream()
-            .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
-    System.out.println(maplong);
-	
 }
 }

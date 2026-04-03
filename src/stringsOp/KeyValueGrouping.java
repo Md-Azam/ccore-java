@@ -2,6 +2,7 @@ package stringsOp;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,37 +52,20 @@ public class KeyValueGrouping {
 		if (input == null || input.isBlank()) {
 			return map;
 		}
-
-		// Step 1: Split by semicolon so we get each "KEY:value" as one string
-		// "HAB:234;HAB:345;HAC:323;HA5:678;" → ["HAB:234", "HAB:345", "HAC:323", "HA5:678", ""]
-		String[] pairs = input.split(";");
-
-		for (String pair : pairs) {
-			pair = pair.trim();
-			if (pair.isEmpty())
-				continue;  // skip empty (e.g. after last ";")
-
-			// Step 2: Find where ":" is to separate key from value
-			int colonIndex = pair.indexOf(':');
-			if (colonIndex == -1)
-				continue;  // no colon, invalid pair
-
-			String key   = pair.substring(0, colonIndex).trim();   // e.g. "HAB"
-			String value = pair.substring(colonIndex + 1).trim();   // e.g. "234"
-			if (key.isEmpty() || value.isEmpty())
-				continue;
-
-			// Step 3: Get the list for this key (or create if first time)
-			List<String> list = map.get(key);
-			if (list == null) {
-				list = new ArrayList<>();
-				map.put(key, list);
-			}
-			// Step 4: Add this value to the list
-			list.add(value);
+		String[] parts = input.split(";");
+		System.out.println("string s: "+ Arrays.toString(parts));
+		for(String  part: parts ) {
+			String[] anotherPart = part.split(":");
+			System.out.println(Arrays.toString(anotherPart));
+			String k = anotherPart[0];
+			String v = anotherPart[1];
+			map.computeIfAbsent(k, ks -> new ArrayList<>()).add(v);
+			
 		}
 		return map;
 	}
+
+		
 
 	/**
 	 * Same logic as above, but using computeIfAbsent so we don't write get/if-null/put.
@@ -116,18 +100,16 @@ public class KeyValueGrouping {
 	 */
 	public static Map<String, List<String>> groupByKeyStreams(String input) {
 		if (input == null || input.isBlank()) {
-			return new HashMap<>();
+			return Collections.emptyMap();
 		}
 		return Arrays.stream(input.split(";"))
-				.map(String::trim)
-				.filter(s -> !s.isEmpty())
-				.map(s -> {
-					int i = s.indexOf(':');
-					return i == -1 ? null : new String[] { s.substring(0, i).trim(), s.substring(i + 1).trim() };
-				})
-				.filter(arr -> arr != null && !arr[0].isEmpty() && !arr[1].isEmpty())
-				.collect(Collectors.groupingBy(
-						arr -> arr[0],
-						Collectors.mapping(arr -> arr[1], Collectors.toList())));
+	            .map(String::trim)
+	            .filter(s -> s.contains(":"))
+	            .map(s -> s.split(":", 2))
+	            .filter(arr -> arr.length == 2 && !arr[0].isBlank() && !arr[1].isBlank())
+	            .collect(Collectors.groupingBy(
+	                    arr -> arr[0].trim(),
+	                    Collectors.mapping(arr -> arr[1].trim(), Collectors.toList())
+	            ));
 	}
 }

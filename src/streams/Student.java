@@ -11,15 +11,24 @@ public class Student {
 	String name;
 	int roll ;
 	int[] marks;
+	String type;
 	
 	//Constructor with field
-	 public Student(int id, int age, String name, int roll, int[] marks) {
+	 public Student(int id, int age, String name, int roll, int[] marks,String type) {
 	        this.id = id;
 	        this.age = age;
 	        this.name = name;
 	        this.roll = roll;
 	        this.marks = marks;
+	        this.type = type;
 	    }
+	 
+	 public String getType() {
+		 return type;
+	 }
+	 public void setType(String type) {
+		 this.type = type;
+	 }
 	 
 	 
 	public int getId() {

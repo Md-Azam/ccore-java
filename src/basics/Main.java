@@ -1,19 +1,16 @@
 package basics;
 
-public class ExceptionsHandling {
-
+import java.util.*;
+class Main {
 	public static void main(String[] args) {
-		try {
-			System.out.println("Try");
-			int a = 5/0;
-			System.out.println(a);
+		List<String> list = Arrays.asList("azam", "car", "act", "maza", "silent", "listen");
+		Map<String, List<String>> map = new HashMap<>();
+		for (String s : list) {
+			char[] carray = s.toCharArray();
+			Arrays.sort(carray);
+			String sch = new String(carray);
+			map.computeIfAbsent(sch, val -> new ArrayList<>()).add(s);
 		}
-		catch(ArithmeticException e) {
-			System.out.println("catch");
-			return ;
-		}finally {
-			System.out.println("Finally block :");
-		}
-		
+		System.out.println(map);
 	}
 }

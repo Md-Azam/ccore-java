@@ -29,7 +29,7 @@ public class StreamListOps {
 		// Sum of all elements in array: Return int
 		System.out.println(list.stream().mapToInt(Integer::intValue).sum());
 
-		// counting each element - Returns Map<Int, Int>
+		// counting each element occurence - Returns Map<Int, Int>
 		System.out.println(
 				list.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.summingInt(e -> 1))));
 

@@ -1,6 +1,8 @@
 package streams;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -15,16 +17,16 @@ public class GroupingBy {
 		 * 3.groupingBy(function,supplier,collector)
 		 */
 
-		Student student1 = new Student(1, 18, "John", 101, new int[] { 90, 85, 92 });
-		Student student2 = new Student(2, 20, "Alice", 102, new int[] { 88, 76, 95 });
-		Student student3 = new Student(3, 19, "Bob", 103, new int[] { 75, 82, 89 });
-		Student student4 = new Student(4, 21, "Emma", 104, new int[] { 94, 87, 91 });
-		Student student5 = new Student(5, 18, "Sam", 105, new int[] { 85, 90, 88 });
-		Student student6 = new Student(6, 20, "Sophia", 106, new int[] { 78, 93, 85 });
-		Student student7 = new Student(7, 19, "Charlie", 107, new int[] { 92, 84, 87 });
-		Student student8 = new Student(8, 21, "Olivia", 108, new int[] { 89, 91, 83 });
-		Student student9 = new Student(9, 18, "Daniel", 109, new int[] { 80, 88, 90 });
-		Student student10 = new Student(10, 20, "Grace", 110, new int[] { 87, 92, 79 });
+		Student student1 = new Student(1, 18, "John", 101, new int[] { 90, 85, 92 }, "Regular");
+		Student student2 = new Student(2, 20, "Alice", 102, new int[] { 88, 76, 95 }, "Distant");
+		Student student3 = new Student(3, 19, "Bob", 103, new int[] { 75, 82, 89 }, "Regular");
+		Student student4 = new Student(4, 21, "Emma", 104, new int[] { 94, 87, 91 }, "Regular");
+		Student student5 = new Student(5, 18, "Sam", 105, new int[] { 85, 90, 88 }, "Regular");
+		Student student6 = new Student(6, 20, "Sophia", 106, new int[] { 78, 93, 85 }, "Regular");
+		Student student7 = new Student(7, 19, "Charlie", 107, new int[] { 92, 84, 87 }, "Distant");
+		Student student8 = new Student(8, 21, "Olivia", 108, new int[] { 89, 91, 83 }, "Distant");
+		Student student9 = new Student(9, 18, "Daniel", 109, new int[] { 80, 88, 90 }, "Regular");
+		Student student10 = new Student(10, 20, "Grace", 110, new int[] { 87, 92, 79 }, "Regular");
 
 		List<Student> allStudent = new ArrayList<>();
 		allStudent.add(student2);
@@ -51,7 +53,27 @@ public class GroupingBy {
 
 		System.out.println(set1);
 
+		// Mapping of student type wise
+		Map<String, List<Student>> listStudentTypeWise = allStudent.stream()
+				.collect(Collectors.groupingBy(student -> student.getType(), Collectors.toList()));
+		System.out.println("listStudentTypeWise: " + listStudentTypeWise.toString());
+
 		// 3.groupingBy(function,supplier,collector)
+
+		// Comparator:
+		Collections.sort(allStudent, new Comparator<Student>() {
+			@Override
+			public int compare(Student e1, Student e2) {
+				return e1.name.compareTo(e2.name);
+			}
+		});
+		allStudent.sort(Comparator.comparing(Student::getId).thenComparing(Student::getAge));
+		List<Student> sortedList = allStudent.stream()
+			    .sorted(Comparator.comparing(Student::getId)
+			    .thenComparing(Student::getAge))
+			    .toList();
+
+			sortedList.forEach(System.out::println);
 	}
 
 }

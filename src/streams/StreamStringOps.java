@@ -58,6 +58,7 @@ public class StreamStringOps {
 		String s = "Linkeidn";
 
 		//Find first character of string
+		System.out.println("First character of string is:");
 		Optional<Map.Entry<Character, Long>> first = s.chars().mapToObj(c -> (char) c)
 				.collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
 				.entrySet().stream().filter(entry -> entry.getValue() == 1).findFirst();

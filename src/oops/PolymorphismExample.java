@@ -16,7 +16,6 @@ public class PolymorphismExample {
 		myBike.start(); // Calls the overridden start method in Bike
 	}
 }
-
 class Student {
 	public void display(String name, int rollNo) {
 		System.out.println("Name: " + name + ", Roll No: " + rollNo);

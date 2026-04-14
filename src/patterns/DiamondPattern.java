@@ -24,7 +24,7 @@ public class DiamondPattern {
 			for (int j = 1; j <= n - i; j++) {
 				System.out.print(" ");
 			}
-				
+
 			for (int j = 1; j <= 2 * i - 1; j++)
 				System.out.print("*");
 			System.out.print("\n");
@@ -38,15 +38,15 @@ public class DiamondPattern {
 				System.out.print("*");
 			System.out.print("\n");
 		}
-		
-		//Ladder with * pattern:
+
+		// Ladder with * pattern:
 		for (int i = 1; i <= n; i++) {
-		    for (int j = 1; j <= n - i; j++)
-		        System.out.print(" ");
-		    System.out.print("/");
-		    for (int k = 1; k <= 2 * i - 1; k++)
-		        System.out.print("*");
-		    System.out.println("\\");
+			for (int j = 1; j <= n - i; j++)
+				System.out.print(" ");
+			System.out.print("/");
+			for (int k = 1; k <= 2 * i - 1; k++)
+				System.out.print("*");
+			System.out.println("\\");
 		}
 
 	}

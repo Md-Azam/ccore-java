@@ -69,7 +69,7 @@ public class StreamStringOps {
 		Map.Entry<Character, Long> mostFreqChar = st.chars().mapToObj(c -> (char) c)
 				.collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
 				.entrySet().stream().max(Map.Entry.comparingByValue()).orElseThrow();
-		System.out.println(mostFreqChar);
+		System.out.println("most frequest chars is : " + mostFreqChar);
 		
 		//Find occurence of each word in a list of string
 		List<String> listFruit = Arrays.asList("apple", "banana", "litchi", "pomagranete", "litchi", "banana");

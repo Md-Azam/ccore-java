@@ -21,7 +21,7 @@ public class LTMStringGrouping {
 			map.computeIfAbsent(key, v -> new ArrayList<>()).add(value);
 			
 		}
-		System.out.println("map: "+ map);
+		System.out.println("hospital code with Patient: "+ map);
 		
 		}
 

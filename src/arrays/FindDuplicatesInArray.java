@@ -53,6 +53,7 @@ public class FindDuplicatesInArray {
 		for (Map.Entry<Integer, Integer> entry : counts.entrySet()) {
 			if (entry.getValue() > 1) {
 				System.out.println(entry.getKey() + " → " + entry.getValue() + " times");
+				System.out.println("duplicates are: " + entry.getKey());
 			}
 		}
 

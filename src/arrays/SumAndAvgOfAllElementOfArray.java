@@ -14,6 +14,8 @@ public class SumAndAvgOfAllElementOfArray {
 	 int[] arr = {1,2,3,44,55,66,77,33,11};
 	int sumOfAll = Arrays.stream(arr).sum();
 	System.out.println("sumOfAll: " + sumOfAll);
+	int[] evenList = Arrays.stream(arr).filter(n -> n%2 ==0).toArray();
+	System.out.println("evenList: " + Arrays.toString(evenList));
 	OptionalDouble avgOfAllElement = 	Arrays.stream(arr).average();
 	System.out.println("avgOfAllElement: "+ avgOfAllElement);
 	int sumofArr = 0;

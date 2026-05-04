@@ -1,10 +1,12 @@
 package streams;
+
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.Collector;
 import java.util.stream.IntStream;
+
 public class StreamListOps {
 
 	public static void main(String args[]) {
@@ -45,6 +47,13 @@ public class StreamListOps {
 
 		// find duplicates - returns List<Integer>
 		System.out.println(list.stream().filter(e -> Collections.frequency(list, e) > 1).distinct().toList());
+
+		Map<Integer, Long> map = list.stream()
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet().stream()
+				.filter(entry -> entry.getValue() % 2 == 0)
+				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+		System.out.println("count with filter: " + map);
 
 	}
 

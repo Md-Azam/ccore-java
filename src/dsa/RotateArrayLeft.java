@@ -6,7 +6,7 @@ public class RotateArrayLeft {
 	public static void main(String[] args) {
 		
 		int[] a =  {1,3,6,8,12,34,44};
-		System.out.println(a);
+		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter no of rotation");
 		int n = sc.nextInt();
@@ -23,6 +23,8 @@ public class RotateArrayLeft {
 		for (int i=0;i<a.length;i++) {
 			System.out.print(a[i]+ " ");
 		}
+		
+		
 	}
 
 }
